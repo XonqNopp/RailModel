@@ -20,6 +20,7 @@ GUInew
 - signal open by user blocks paths open until train leaves (ConfirmOpen)
 - partialpath has Signal* SignalBefore/After
 - aiguillage::GUI_ChooseLeftRight called on SetAfter1/2
+- add associated signal (id) to preSignal; if signal is closed, shut down preSignal
 
 *DONE*
 - ModelClass
