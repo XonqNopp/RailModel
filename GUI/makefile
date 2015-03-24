@@ -5,7 +5,7 @@ ifeq ($(system),Darwin)
  glutdlibs = -framework OpenGL -framework GLUT
 else
  glutdflags = -L/usr/X11R6/lib/
- glutdlibs = -lglut -lGLU -lGL -lXmu -lXi
+ glutdlibs = -lglut -lGLU -lGL# -lXmu -lXi
 endif
 
 LINK.GLUT = g++ $(ALLWG) $(WEFF)  $(glutdflags) $(glutdlibs)
@@ -14,6 +14,18 @@ all: clr simulation3d
 
 clr:
 	clear
+
+test_lib: test_lib.exe
+	./$@.exe
+
+test_lib.exe: test_lib.cpp
+	g++ $(ALLWG) $(WEFF) $(glutdflags) -o $@ $^ $(glutdlibs)
+
+
+
+
+
+
 
 simulation3d: simulation3d.o GUI.o dessinable.o camera.o vecteur3d.o univers.o corps.o etoile.o planete.o satellite.o couleur4d.o
 	$(LINK.GLUT) -o $@ $^
