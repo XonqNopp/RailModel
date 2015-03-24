@@ -1,4 +1,5 @@
 *priority*
+set log levels like PHP
 add MaximumSpeed to path (default 0)
 add CremaillereRequired to path (default false)
 NowSignal has method that checks path open as far as nowsignal found or end of path

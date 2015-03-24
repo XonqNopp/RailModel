@@ -18,6 +18,7 @@ ifeq ($(shell (uname | cut -b 1-6)),Darwin)
  GLUTlibs=-framework OpenGL -framework GLUT
 else
  #GLUTflags=-L/usr/X11R6/lib
+ GLUTflags=-L/usr/lib/nvidia-331-updates
  GLUTlibs=-lglut -lGLU -lGL# -lXmu -lXi
 endif
 
@@ -41,7 +42,7 @@ run%: test_%.exe
 test_%.exe:
 	@echo
 	@echo "   Building $@..."
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(GLUTlibs)
+	$(CXX) $(CXXFLAGS) $(GLUTflags) -o $@ $^ $(GLUTlibs)
 
 
 test_ModelClass.exe: ModelClass.obj test_ModelClass.obj ../Vecteur3D/Vecteur3D.obj
